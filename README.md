@@ -16,7 +16,7 @@ The whole pipeline is two SQL scripts you can run top to bottom. A long-form art
 - [Open questions for the hotel](#open-questions-for-the-hotel)
 - [Troubleshooting](#troubleshooting)
 - [Limits and next steps](#limits-and-next-steps)
-- [Author and licence](#author-and-licence)
+
 
 ## Key results
 
