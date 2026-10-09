@@ -50,23 +50,36 @@ The finding that most needs follow-up: all 32 lost bookings were paid by bank tr
 ## Repository layout
 
 ```text
-tembo-hotel-sql-analysis/
+Tembo-Hotel-Analysis/
+├── .gitignore
 ├── README.md
 ├── data/
 │   └── raw/
 │       └── tembo_hotel_dirty.csv
 ├── docs/
 │   └── Tembo_Hotel_Project_Brief.docx
+├── powerbi/
+│   ├── measures.md
+│   ├── project/
+│   │   ├── Tembo_hotel.Report
+│   │   ├── Tembo_hotel.SemanticModel
+│   │   └── Tembo_hotel.pbip
+│   └── screenshots/
+│       ├── 01-executive-overview.png
+│       ├── 02-rooms-and-guests.png
+│       └── 03-staff-and-risk.png
 ├── sql/
-    ├── 01_setup_and_cleaning.sql
-    └── 02_business_analysis.sql
-
+│   ├── 01_setup_and_cleaning.sql
+│   └── 02_business_analysis.sql
 ```
 
 | Path | What it holds | Read it when |
 | --- | --- | --- |
 | `data/raw/tembo_hotel_dirty.csv` | The untouched export from the hotel. Never edit this file. | You want to see the original mess |
 | `docs/Tembo_Hotel_Project_Brief.docx` | The scenario, the Director's message and the six groups of business questions | You want to know what was asked and why |
+| `powerbi/measures.md` | The KPI and measure definitions used in the dashboard | You want to understand the report calculations |
+| `powerbi/project/` | The Power BI project files (`.pbip`, `.SemanticModel`, `.Report`) | You want to open or modify the dashboard |
+| `powerbi/screenshots/` | Snapshot images of the main dashboard views | You want to review the visuals without opening Power BI |
 | `sql/01_setup_and_cleaning.sql` | Creates the `tembo` schema, loads the CSV, audits the damage, fixes it, builds the typed table and the analysis view | You want to rebuild the clean data |
 | `sql/02_business_analysis.sql` | One query (or a few) for each business question | You want the answers |
 
