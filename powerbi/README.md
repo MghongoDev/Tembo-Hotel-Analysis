@@ -135,11 +135,4 @@ The dashboard works and its totals tie to SQL. A review found items to repair. T
 | Fix next | Bars sort alphabetically, with no data labels. The page has no slicers. | All pages |
 | Fix next | Seven finished measures sit on no visual, among them month-over-month growth and the Top 10 city rank | Model |
 
-## Before you share the project
 
-The project copy in this folder has been prepared for sharing. Two things were removed or changed, and you should keep it that way:
-
-- **The database host.** The original model stored a hosted database address in plain text. This copy points at `localhost:5432`.
-- **The local cache and settings.** `cache.abf` holds a copy of the imported data, guest names and phone numbers included. `localSettings.json` holds machine-specific bindings. The root `.gitignore` keeps both out of version control.
-
-After you reopen the project in Power BI Desktop and refresh it, Power BI recreates both files. Do not commit them.
