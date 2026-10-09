@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "b0010a0c000000000004",
+  "position": {
+    "x": 1159.2738752959747,
+    "y": 104.56195737963694,
+    "z": 3000,
+    "height": 150,
+    "width": 360,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Lost Revenue"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Lost Revenue",
+              "nativeQueryRef": "Lost Revenue",
+              "displayName": "Lost Revenue"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'At-Risk Booking Value (KES)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

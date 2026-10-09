@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "b0010a0c000000000010",
+  "position": {
+    "x": 1539.6369376479872,
+    "y": 104.56195737963694,
+    "z": 9000,
+    "height": 150,
+    "width": 360,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Completed Stays"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Completed Stays",
+              "nativeQueryRef": "Completed Stays",
+              "displayName": "Completed Stays"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Completed Stays'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

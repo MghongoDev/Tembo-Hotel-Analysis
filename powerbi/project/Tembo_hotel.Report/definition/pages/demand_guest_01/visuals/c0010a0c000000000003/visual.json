@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "c0010a0c000000000003",
+  "position": {
+    "x": 1272,
+    "y": 32,
+    "z": 2000,
+    "height": 420,
+    "width": 616
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "guest_city"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.guest_city",
+              "nativeQueryRef": "guest_city",
+              "active": true,
+              "displayName": "Guest City"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Completed Stays"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Completed Stays",
+              "nativeQueryRef": "Completed Stays",
+              "displayName": "Completed Stays"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Completed Stays by Guest City'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

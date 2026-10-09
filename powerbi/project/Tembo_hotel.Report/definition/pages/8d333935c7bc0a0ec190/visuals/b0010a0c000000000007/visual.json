@@ -1,0 +1,95 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "b0010a0c000000000007",
+  "position": {
+    "x": 0,
+    "y": 685.04529616724733,
+    "z": 6000,
+    "height": 390,
+    "width": 590,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "payment_method"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.payment_method",
+              "nativeQueryRef": "payment_method",
+              "active": true,
+              "displayName": "Payment Method"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Realised Revenue"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Realised Revenue",
+              "nativeQueryRef": "Realised Revenue",
+              "displayName": "Revenue (KES)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Revenue by Payment Method (KES)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

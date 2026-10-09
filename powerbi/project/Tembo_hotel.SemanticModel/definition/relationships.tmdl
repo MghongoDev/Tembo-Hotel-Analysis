@@ -1,0 +1,15 @@
+relationship fc3cdb80-af91-42f1-b67c-f329acde0c50
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'tembo_hotel v_clean_bookings'.check_in_date
+	toColumn: LocalDateTable_32708496-c1b1-4e0c-85c7-e786cda4af2d.Date
+
+relationship 71c3fe84-5d91-4538-b072-fcabc4c33ac4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'tembo_hotel v_clean_bookings'.check_out_date
+	toColumn: LocalDateTable_21d0ff03-461e-4f08-8f11-983ff6597356.Date
+
+relationship 81f6150e-18f0-4fd8-90e0-e581bfbecec8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'tembo_hotel v_clean_bookings'.stay_month
+	toColumn: LocalDateTable_5e3fc200-3198-4b10-914a-476d184c02d0.Date
+

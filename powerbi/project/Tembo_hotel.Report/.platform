@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Tembo_hotel"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8aaad42e-21ee-4d32-bf14-2a481303b1f5"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "c0010a0c000000000002",
+  "position": {
+    "x": 652,
+    "y": 32,
+    "z": 1000,
+    "height": 420,
+    "width": 590
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "room_type"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.room_type",
+              "nativeQueryRef": "room_type",
+              "active": true,
+              "displayName": "Room Type"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Average Stay Nights"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Average Stay Nights",
+              "nativeQueryRef": "Average Stay Nights",
+              "displayName": "Average Nights"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average Stay Length by Room Type'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

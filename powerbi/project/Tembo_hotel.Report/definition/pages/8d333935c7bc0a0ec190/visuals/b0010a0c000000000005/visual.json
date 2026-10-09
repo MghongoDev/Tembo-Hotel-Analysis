@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "b0010a0c000000000005",
+  "position": {
+    "x": 0,
+    "y": 263.67797947908446,
+    "z": 4000,
+    "height": 400,
+    "width": 1090,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "month_label"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.month_label",
+              "nativeQueryRef": "month_label",
+              "active": true,
+              "displayName": "Month"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Realised Revenue"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Realised Revenue",
+              "nativeQueryRef": "Realised Revenue",
+              "displayName": "Revenue (KES)"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Monthly Realised Revenue (KES)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

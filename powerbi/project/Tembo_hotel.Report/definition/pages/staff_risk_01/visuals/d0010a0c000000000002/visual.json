@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "d0010a0c000000000002",
+  "position": {
+    "x": 1180,
+    "y": 32,
+    "z": 1000,
+    "height": 460,
+    "width": 708
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "staff_department"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.staff_department",
+              "nativeQueryRef": "staff_department",
+              "active": true,
+              "displayName": "Department"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Realised Revenue"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Realised Revenue",
+              "nativeQueryRef": "Realised Revenue",
+              "displayName": "Revenue (KES)"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Realised Revenue by Department (KES)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d0010a0c000000000001",
+  "position": {
+    "x": 32,
+    "y": 32,
+    "z": 0,
+    "height": 460,
+    "width": 1120
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Staff Booking Rank"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Staff Booking Rank",
+              "nativeQueryRef": "Staff Booking Rank",
+              "displayName": "Rank"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "staff_name"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.staff_name",
+              "nativeQueryRef": "staff_name",
+              "displayName": "Staff Member"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "staff_department"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.staff_department",
+              "nativeQueryRef": "staff_department",
+              "displayName": "Department"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Bookings Handled"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Bookings Handled",
+              "nativeQueryRef": "Bookings Handled",
+              "displayName": "Bookings"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Completed Stays"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Completed Stays",
+              "nativeQueryRef": "Completed Stays",
+              "displayName": "Completed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Lost Bookings"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Lost Bookings",
+              "nativeQueryRef": "Lost Bookings",
+              "displayName": "Lost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Realised Revenue"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Realised Revenue",
+              "nativeQueryRef": "Realised Revenue",
+              "displayName": "Revenue (KES)"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Staff Performance'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

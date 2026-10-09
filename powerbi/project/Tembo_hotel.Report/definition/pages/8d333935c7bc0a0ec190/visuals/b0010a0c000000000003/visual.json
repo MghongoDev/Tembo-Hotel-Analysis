@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "b0010a0c000000000003",
+  "position": {
+    "x": 780.42620363062349,
+    "y": 103.04656669297553,
+    "z": 2000,
+    "height": 150,
+    "width": 360,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Average Guest Rating"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Average Guest Rating",
+              "nativeQueryRef": "Average Guest Rating",
+              "displayName": "Average Guest Rating"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average Guest Rating / 5'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

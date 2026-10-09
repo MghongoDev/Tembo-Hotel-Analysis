@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "c0010a0c000000000004",
+  "position": {
+    "x": 32,
+    "y": 492,
+    "z": 3000,
+    "height": 480,
+    "width": 920
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "guest_rating"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.guest_rating",
+              "nativeQueryRef": "guest_rating",
+              "active": true,
+              "displayName": "Guest Rating"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Rating Distribution Share"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Rating Distribution Share",
+              "nativeQueryRef": "Rating Distribution Share",
+              "displayName": "Share of Rated Stays"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Guest Rating Distribution'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

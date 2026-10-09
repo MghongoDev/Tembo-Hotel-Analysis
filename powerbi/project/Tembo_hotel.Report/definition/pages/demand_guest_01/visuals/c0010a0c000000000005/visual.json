@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "c0010a0c000000000005",
+  "position": {
+    "x": 972,
+    "y": 492,
+    "z": 4000,
+    "height": 480,
+    "width": 916
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "room_type"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.room_type",
+              "nativeQueryRef": "room_type",
+              "active": true,
+              "displayName": "Room Type"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Average Guest Rating"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Average Guest Rating",
+              "nativeQueryRef": "Average Guest Rating",
+              "displayName": "Average Rating"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average Rating by Room Type'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

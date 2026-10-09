@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "d0010a0c000000000003",
+  "position": {
+    "x": 32,
+    "y": 542,
+    "z": 2000,
+    "height": 480,
+    "width": 870
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "room_type"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.room_type",
+              "nativeQueryRef": "room_type",
+              "active": true,
+              "displayName": "Room Type"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Lost Booking Rate"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Lost Booking Rate",
+              "nativeQueryRef": "Lost Booking Rate",
+              "displayName": "Lost Booking Rate"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cancellation and No-Show Rate by Room Type'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

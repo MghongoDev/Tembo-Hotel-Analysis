@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-KE
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["tembo_hotel v_clean_bookings"]
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+ref table 'tembo_hotel v_clean_bookings'
+ref table DateTableTemplate_93ca39a1-8a0f-4314-a21e-fa2716dd68b9
+ref table LocalDateTable_32708496-c1b1-4e0c-85c7-e786cda4af2d
+ref table LocalDateTable_21d0ff03-461e-4f08-8f11-983ff6597356
+ref table LocalDateTable_5e3fc200-3198-4b10-914a-476d184c02d0
+
+ref cultureInfo en-US
+

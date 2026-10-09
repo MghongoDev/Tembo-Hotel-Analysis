@@ -1,0 +1,533 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "tembo_hotel_v_clean_bookings.total_bookings": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Total Bookings"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Total Bookings": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.realised_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Realised Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Realised Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Revenue (KES)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.average_guest_rating": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Average Guest Rating"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Average Guest Rating": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Average Rating": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.lost_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Lost Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Lost Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "At-Risk Value (KES)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.month_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "month_label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.room_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "room_type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Room Type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.payment_method": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "payment_method"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Payment Method": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.staff_department": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "staff_department"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Department": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.department_revenue_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Department Revenue Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue Share": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.booking_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "booking_status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Booking Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.booking_status_value_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Booking Status Value Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Share of Booked Value": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.completed_stays": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Completed Stays"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Completed Stays": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Completed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.average_stay_nights": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Average Stay Nights"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Average Nights": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.guest_city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "guest_city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Guest City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.guest_rating": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "guest_rating"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Guest Rating": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.rating_distribution_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Rating Distribution Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Share of Rated Stays": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.staff_booking_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Staff Booking Rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.staff_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "staff_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Staff Member": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.bookings_handled": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Bookings Handled"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bookings": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.lost_bookings": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Lost Bookings"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Lost": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Lost Bookings": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.lost_booking_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Lost Booking Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Lost Booking Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Loss Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tembo_hotel_v_clean_bookings.staff_handling_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tembo_hotel v_clean_bookings",
+			          "ConceptualProperty": "Staff Handling Count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Staff Handling": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

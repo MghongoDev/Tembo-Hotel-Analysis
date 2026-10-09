@@ -1,0 +1,394 @@
+table 'tembo_hotel v_clean_bookings'
+	lineageTag: 589373ea-4373-4c80-80f9-404e2eab0039
+
+	/// All bookings in the current filter context.
+	measure 'Total Bookings' = COUNTROWS('tembo_hotel v_clean_bookings')
+		formatString: #,##0
+		displayFolder: 01 Booking Volume
+		lineageTag: a24ba9ca-61c8-45f7-808b-de9dc6c815ed
+
+	/// Checked-out bookings; the project definition of completed stays.
+	measure 'Completed Stays' = CALCULATE([Total Bookings], 'tembo_hotel v_clean_bookings'[booking_status] = "Checked Out")
+		formatString: #,##0
+		displayFolder: 01 Booking Volume
+		lineageTag: de181687-2a26-4d3e-9f84-f91469df9fc0
+
+	/// Collected revenue from checked-out bookings only, in KES.
+	measure 'Realised Revenue' = SUM('tembo_hotel v_clean_bookings'[realised_revenue])
+		formatString: #,##0
+		displayFolder: 02 Revenue
+		lineageTag: 7d04fbe1-f014-4853-bfd7-284f78330c71
+
+	/// Share of realised revenue within the current filters, across room types.
+	measure 'Room Type Revenue Share' = DIVIDE([Realised Revenue], CALCULATE([Realised Revenue], REMOVEFILTERS('tembo_hotel v_clean_bookings'[room_type])))
+		formatString: 0.0%
+		displayFolder: 02 Revenue
+		lineageTag: 8a111da3-d7d4-4e6b-bb38-7829471cf0d6
+
+	/// Share of realised revenue within the current filters, across payment methods.
+	measure 'Payment Method Revenue Share' = DIVIDE([Realised Revenue], CALCULATE([Realised Revenue], REMOVEFILTERS('tembo_hotel v_clean_bookings'[payment_method])))
+		formatString: 0.0%
+		displayFolder: 02 Revenue
+		lineageTag: 2270b80d-c0c8-404e-8f43-e71fa9f0a391
+
+	/// Share of realised revenue within the current filters, across staff departments.
+	measure 'Department Revenue Share' = DIVIDE([Realised Revenue], CALCULATE([Realised Revenue], REMOVEFILTERS('tembo_hotel v_clean_bookings'[staff_department])))
+		formatString: 0.0%
+		displayFolder: 02 Revenue
+		lineageTag: 297b6ce4-fffd-41e3-9ec8-c2c4ef5907ac
+
+	/// Nights from checked-out bookings.
+	measure 'Room Nights' = CALCULATE(SUM('tembo_hotel v_clean_bookings'[nights_stayed]), 'tembo_hotel v_clean_bookings'[booking_status] = "Checked Out")
+		formatString: #,##0
+		displayFolder: 03 Room Demand
+		lineageTag: cf020b06-acef-4f78-8491-85b82e5f1aa2
+
+	/// Average nights per completed stay.
+	measure 'Average Stay Nights' = DIVIDE([Room Nights], [Completed Stays])
+		formatString: 0.00
+		displayFolder: 03 Room Demand
+		lineageTag: eb75d1cf-9885-4d05-ab6b-6a3453715c09
+
+	/// Completed stays with a valid guest rating.
+	measure 'Rated Stays' = CALCULATE(COUNT('tembo_hotel v_clean_bookings'[guest_rating]), 'tembo_hotel v_clean_bookings'[booking_status] = "Checked Out")
+		formatString: #,##0
+		displayFolder: 04 Guest Satisfaction
+		lineageTag: 0c0c3dcc-0516-4ec9-8697-0f2f5b79df27
+
+	/// Average guest rating for completed stays.
+	measure 'Average Guest Rating' = CALCULATE(AVERAGE('tembo_hotel v_clean_bookings'[guest_rating]), 'tembo_hotel v_clean_bookings'[booking_status] = "Checked Out")
+		formatString: 0.00
+		displayFolder: 04 Guest Satisfaction
+		lineageTag: 1fd1d331-e756-4c84-9dff-aaa290034630
+
+	/// Share of rated completed stays for each rating value.
+	measure 'Rating Distribution Share' = DIVIDE([Rated Stays], CALCULATE([Rated Stays], REMOVEFILTERS('tembo_hotel v_clean_bookings'[guest_rating])))
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 04 Guest Satisfaction
+		lineageTag: aed96152-8e50-461f-89a1-56ce489260f4
+
+	/// Share of rated completed stays with a rating of 1 or 2.
+	measure 'Low Rating Share' = DIVIDE(CALCULATE([Rated Stays], REMOVEFILTERS('tembo_hotel v_clean_bookings'[guest_rating]), 'tembo_hotel v_clean_bookings'[guest_rating] <= 2), CALCULATE([Rated Stays], REMOVEFILTERS('tembo_hotel v_clean_bookings'[guest_rating])))
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 04 Guest Satisfaction
+		lineageTag: 7797a696-e420-45d3-bb35-7c4211f185f5
+
+	/// All bookings handled, regardless of final booking status.
+	measure 'Bookings Handled' = [Total Bookings]
+		formatString: #,##0
+		displayFolder: 05 Staff Performance
+		lineageTag: 6f2e8f4f-356d-43d3-829a-db2a8b97dd9a
+
+	/// Staff rank by bookings handled, highest count first.
+	measure 'Staff Booking Rank' = RANKX(ALL('tembo_hotel v_clean_bookings'[staff_name]), [Bookings Handled],, DESC, DENSE)
+		formatString: 0
+		displayFolder: 05 Staff Performance
+		lineageTag: c3e05f3b-221f-49f6-baa8-024ba8a25ce2
+
+	/// Cancelled and no-show bookings.
+	measure 'Lost Bookings' = COALESCE(CALCULATE([Total Bookings], 'tembo_hotel v_clean_bookings'[booking_status] IN {"Cancelled", "No Show"}), 0)
+		formatString: #,##0
+		displayFolder: 06 Booking Losses
+		lineageTag: c66fce6a-60c1-4c9d-a1bb-f3220d566fbb
+
+	/// Share of bookings cancelled or marked as no-show.
+	measure 'Lost Booking Rate' = DIVIDE([Lost Bookings], [Total Bookings], 0)
+		formatString: 0.0%
+		displayFolder: 06 Booking Losses
+		lineageTag: 4ce1df05-276d-42d6-8e93-7ee5a2d2a31c
+
+	/// Booked value associated with cancellations and no-shows, in KES; not collected revenue.
+	measure 'Lost Revenue' = SUM('tembo_hotel v_clean_bookings'[lost_revenue])
+		formatString: #,##0
+		displayFolder: 06 Booking Losses
+		lineageTag: b567027a-36b6-461a-98d6-9d7b5d4bc315
+
+	/// Total stated booking value across statuses, in KES.
+	measure 'Booked Value' = SUM('tembo_hotel v_clean_bookings'[total_amount])
+		formatString: #,##0
+		displayFolder: 06 Booking Losses
+		lineageTag: 3344e1b7-b1e0-4fc0-bd4c-a6217d858953
+
+	/// Share of booked value represented by cancellation and no-show losses.
+	measure 'Lost Value Share' = DIVIDE([Lost Revenue], CALCULATE([Booked Value], REMOVEFILTERS('tembo_hotel v_clean_bookings'[booking_status])))
+		formatString: 0.0%
+		displayFolder: 06 Booking Losses
+		lineageTag: 094ba745-d95b-4335-be13-6a0f502594df
+
+	/// Distinct staff members represented in the current filter context.
+	measure 'Staff Handling Count' = DISTINCTCOUNT('tembo_hotel v_clean_bookings'[staff_name])
+		formatString: #,##0
+		displayFolder: 05 Staff Performance
+		lineageTag: 598a610c-39c2-4cf6-b632-b77402f12034
+
+	/// Realised revenue for the previous check-in month; use month_label or stay_month on the visual axis.
+	measure 'Previous Month Revenue' = VAR CurrentMonth = MAX('tembo_hotel v_clean_bookings'[stay_month]) RETURN CALCULATE([Realised Revenue], REMOVEFILTERS('tembo_hotel v_clean_bookings'[stay_month]), REMOVEFILTERS('tembo_hotel v_clean_bookings'[month_label]), 'tembo_hotel v_clean_bookings'[stay_month] = EDATE(CurrentMonth, -1))
+		formatString: #,##0
+		displayFolder: 07 Monthly Trend
+		lineageTag: eceb07a0-7036-4f7e-afd8-c5241682a4f0
+
+	/// Percentage change in realised revenue from the previous check-in month.
+	measure 'Revenue Month-over-Month Growth' = DIVIDE([Realised Revenue] - [Previous Month Revenue], [Previous Month Revenue])
+		formatString: 0.0%
+		displayFolder: 07 Monthly Trend
+		lineageTag: 4ed39558-c423-4918-b395-4394ebdd6f2f
+
+	/// Check-in month rank by realised revenue, highest first.
+	measure 'Revenue Month Rank' = RANKX(ALL('tembo_hotel v_clean_bookings'[stay_month], 'tembo_hotel v_clean_bookings'[month_label]), [Realised Revenue],, DESC, DENSE)
+		formatString: 0
+		displayFolder: 07 Monthly Trend
+		lineageTag: 587ab173-84a7-463e-ada7-5b0262cad747
+
+	/// Guest city rank by completed stays; use as a Top 10 visual filter.
+	measure 'Guest City Stay Rank' = RANKX(ALL('tembo_hotel v_clean_bookings'[guest_city]), [Completed Stays],, DESC, DENSE)
+		formatString: 0
+		displayFolder: 04 Guest Satisfaction
+		lineageTag: 90c3858b-70b5-43cc-b821-44766aeb210b
+
+	/// Share of total stated booking value represented by each booking status.
+	measure 'Booking Status Value Share' = DIVIDE([Booked Value], CALCULATE([Booked Value], REMOVEFILTERS('tembo_hotel v_clean_bookings'[booking_status])))
+		formatString: 0.0%
+		displayFolder: 06 Booking Losses
+		lineageTag: edeec588-a724-470e-98bd-508cc595d6f7
+
+	column booking_id
+		dataType: string
+		lineageTag: 8fd5cf08-ea5c-4369-b0c2-51be353ceda2
+		summarizeBy: none
+		sourceColumn: booking_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column guest_name
+		dataType: string
+		lineageTag: 2c61b0bf-11ec-41ce-8dfd-f508a7d8cfbd
+		summarizeBy: none
+		sourceColumn: guest_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column guest_phone
+		dataType: string
+		lineageTag: 7fd9c79b-4564-40c4-8259-8538b3076362
+		summarizeBy: none
+		sourceColumn: guest_phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column guest_city
+		dataType: string
+		lineageTag: caab5900-5899-4814-a303-539572c2ad50
+		summarizeBy: none
+		sourceColumn: guest_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column guest_nationality
+		dataType: string
+		lineageTag: dfd5d80b-33bd-4a24-9624-323183fe7edf
+		summarizeBy: none
+		sourceColumn: guest_nationality
+
+		annotation SummarizationSetBy = Automatic
+
+	column room_no
+		dataType: string
+		lineageTag: 31b687a9-44bf-4693-abaa-98ae099ba9e8
+		summarizeBy: none
+		sourceColumn: room_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column room_type
+		dataType: string
+		lineageTag: ee0acf31-45dd-491a-b6b5-cdc602ed3114
+		summarizeBy: none
+		sourceColumn: room_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column room_rate_per_night
+		dataType: double
+		lineageTag: 5a537f7f-a992-4f00-a2bc-0e6edbd52016
+		summarizeBy: sum
+		sourceColumn: room_rate_per_night
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column check_in_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 49bf46f3-de21-423e-8155-9a7e40a09e58
+		summarizeBy: none
+		sourceColumn: check_in_date
+
+		variation Variation
+			isDefault
+			relationship: fc3cdb80-af91-42f1-b67c-f329acde0c50
+			defaultHierarchy: LocalDateTable_32708496-c1b1-4e0c-85c7-e786cda4af2d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column check_out_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 475aec4e-ccc1-4c50-85d2-33ce8cb48fb6
+		summarizeBy: none
+		sourceColumn: check_out_date
+
+		variation Variation
+			isDefault
+			relationship: 71c3fe84-5d91-4538-b072-fcabc4c33ac4
+			defaultHierarchy: LocalDateTable_21d0ff03-461e-4f08-8f11-983ff6597356.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column nights_stayed
+		dataType: int64
+		formatString: 0
+		lineageTag: 68e996f3-6afa-485b-a937-49370fae4d68
+		summarizeBy: sum
+		sourceColumn: nights_stayed
+
+		annotation SummarizationSetBy = Automatic
+
+	column staff_name
+		dataType: string
+		lineageTag: 3434982c-abbc-43ff-a901-e752785588a7
+		summarizeBy: none
+		sourceColumn: staff_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column staff_department
+		dataType: string
+		lineageTag: 052fe7ac-5982-4b4d-a3b5-f94ef078cbd0
+		summarizeBy: none
+		sourceColumn: staff_department
+
+		annotation SummarizationSetBy = Automatic
+
+	column staff_salary
+		dataType: double
+		lineageTag: 9a2e3928-0d75-4659-86aa-62b43c8a418c
+		summarizeBy: sum
+		sourceColumn: staff_salary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column payment_method
+		dataType: string
+		lineageTag: 0a954d83-4568-4aa6-a8c8-f0a6f599af5c
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column booking_status
+		dataType: string
+		lineageTag: 8d854ca9-0a88-4874-917f-b6ec962bd2fe
+		summarizeBy: none
+		sourceColumn: booking_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_amount
+		dataType: double
+		lineageTag: 409f6e7d-3c5f-42ee-87f8-a58aeb83c3e3
+		summarizeBy: sum
+		sourceColumn: total_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column service_used
+		dataType: string
+		lineageTag: 8f397331-127f-484c-aebc-7e9d5fa6ff23
+		summarizeBy: none
+		sourceColumn: service_used
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_price
+		dataType: double
+		lineageTag: 8873be42-f3dd-4e8a-b62d-af808faee19e
+		summarizeBy: sum
+		sourceColumn: service_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column guest_rating
+		dataType: int64
+		formatString: 0
+		lineageTag: dcc7c0fb-c025-4084-a614-67f394a806ef
+		summarizeBy: sum
+		sourceColumn: guest_rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column stay_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3bf8ddf0-395c-4484-bbba-f638352987ad
+		summarizeBy: none
+		sourceColumn: stay_month
+
+		variation Variation
+			isDefault
+			relationship: 81f6150e-18f0-4fd8-90e0-e581bfbecec8
+			defaultHierarchy: LocalDateTable_5e3fc200-3198-4b10-914a-476d184c02d0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column month_label
+		dataType: string
+		lineageTag: 5ed78375-7ffa-4cb7-bc50-4eff58a597da
+		summarizeBy: none
+		sourceColumn: month_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column realised_revenue
+		dataType: double
+		lineageTag: bf0ae6b3-88f8-4b27-9f0d-7fe9b3dd8ded
+		summarizeBy: sum
+		sourceColumn: realised_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lost_revenue
+		dataType: double
+		lineageTag: a76a1770-9854-4979-bd55-e1c1690904e3
+		summarizeBy: sum
+		sourceColumn: lost_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'tembo_hotel v_clean_bookings' = m
+		mode: import
+		source =
+				let
+				  Source = PostgreSQL.Database("localhost:5432", "defaultdb"),
+				  #"Navigation 1" = Source{[Schema = "tembo_hotel", Item = "v_clean_bookings"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

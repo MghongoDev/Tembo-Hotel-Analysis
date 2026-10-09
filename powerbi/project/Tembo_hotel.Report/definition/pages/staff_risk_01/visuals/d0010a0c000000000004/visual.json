@@ -1,0 +1,119 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "d0010a0c000000000004",
+  "position": {
+    "x": 932,
+    "y": 542,
+    "z": 3000,
+    "height": 480,
+    "width": 956
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "payment_method"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.payment_method",
+              "nativeQueryRef": "payment_method",
+              "displayName": "Payment Method"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Lost Bookings"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Lost Bookings",
+              "nativeQueryRef": "Lost Bookings",
+              "displayName": "Lost Bookings"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Lost Booking Rate"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Lost Booking Rate",
+              "nativeQueryRef": "Lost Booking Rate",
+              "displayName": "Loss Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Lost Revenue"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Lost Revenue",
+              "nativeQueryRef": "Lost Revenue",
+              "displayName": "At-Risk Value (KES)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tembo_hotel v_clean_bookings"
+                    }
+                  },
+                  "Property": "Staff Handling Count"
+                }
+              },
+              "queryRef": "tembo_hotel v_clean_bookings.Staff Handling Count",
+              "nativeQueryRef": "Staff Handling Count",
+              "displayName": "Staff Handling"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Lost Bookings by Payment Method'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
